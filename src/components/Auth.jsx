@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { firebase } from "../firebase";
+import {Button} from './Button.jsx'
 import {
   getAuth,
   RecaptchaVerifier,
@@ -59,13 +60,13 @@ function Auth() {
         onChange={(e) => {
           setnumber(e.target.value);
         }}
-        placeholder="phone number"
+        placeholder="+66 phone number"
         style={{ color: "black" }}
       />
       <div id="recaptcha-container" />
-      <button className="rounded-none p-4 bg-cyan-700" onClick={signin}>
+      <Button full std className="rounded-none p-4 bg-cyan-700" onClick={signin}>
         Send OTP
-      </button>
+      </Button>
     </>
   );
   const renderValidate = (
@@ -79,15 +80,16 @@ function Auth() {
           setotp(e.target.value);
         }}
       />
-      <button className="rounded-none p-4 bg-cyan-700" onClick={ValidateOtp}>
+      <Button full std className="rounded-none p-4 bg-cyan-700" onClick={ValidateOtp}>
         Verify
-      </button>
+      </Button>
     </>
   );
   return (
-    <div className="container h-full max-w-screen-sm shadow mx-auto px-4">
+    <div className="rounded bg-blue-50 container h-full max-w-screen-sm shadow mx-auto px-4">
       <div className="w-5/12 h-full mx-auto py-8">
         <div className="h-full flex flex-col justify-around">
+        <div>Please fill phone number to login</div>
           {!show ? renderSendOtp : renderValidate}
           {/* {renderSendOtp}
           {renderValidate} */}

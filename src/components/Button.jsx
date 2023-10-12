@@ -7,6 +7,9 @@ export const Button = styled("button", {
   fontSize: 8,
   color: "white",
   variants: {
+    std: {
+      true: {fontSize: 16, p: '$2 $4'}
+    },
     selected: {
       true: {
         bc: "gray",
