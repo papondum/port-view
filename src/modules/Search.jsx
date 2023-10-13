@@ -42,7 +42,7 @@ function Stocks({ setPage, setStockDetail }) {
   const [stocks, setStocks] = useState([]);
   const [search, setSearch] = useState("");
   const [selectedStock, setSelectedStock] = useState([]);
-  const user = useUser();
+  const [user] = useUser();
 
   const fetch = async () => {
     const docRef = doc(db, "users", user.uid);

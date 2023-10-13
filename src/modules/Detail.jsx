@@ -45,7 +45,7 @@ const Detail = ({ setPage }) => {
   const [dayRange, setDayRange] = useState();
   const [feed, setFeed] = useState([]);
   const [selectedStock, setSelectedStock] = useState([]);
-  const user = useUser();
+  const [user] = useUser();
   const [data, setData] = useState({
     open: [],
     height: [],
@@ -202,7 +202,6 @@ const Detail = ({ setPage }) => {
   return (
     <div>
       <div onClick={() => setPage("dashboard")}>{"<"} Back</div>
-      <div></div>
       <div className="p-3 flex justify-between w-full m-auto">
         <Button
           selected={range == "INTRADAY" && dayRange == "1min"}
@@ -247,7 +246,7 @@ const Detail = ({ setPage }) => {
           Monthly
         </Button>
       </div>
-      <div>
+      <div style={{backgroundColor: 'white', borderRadius: 6, marginBottom: 6}}>
         <Line options={options} data={_data} />
       </div>
       <Button full onClick={addStockToUser}>

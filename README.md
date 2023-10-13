@@ -4,6 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 main framworks in this project
 - React
+- firebase (authentication, firestore)
 - tailwindcss
 - stitchesJS
 - Algolia

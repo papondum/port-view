@@ -57,8 +57,11 @@ const DashboardWrap = styled("div", {
   ".red": { bc: "#FF8A80", color: "#D32F2F" },
   ".green": { bc: "#69F0AE", color: "#43A047" },
 });
+const Signout = styled('button',{
+  fontSize: 11, position: 'absolute', bottom: 12, right: 24, color: '#aaa'
+})
 const Dashboard = ({ setPage, setStockDetail }) => {
-  const user = useUser();
+  const [user, setSign] = useUser();
   const [selectedStock, setSelectedStock] = useState([]);
   const [gainLoss, setGainLoss] = useState();
   const fetch = async () => {
@@ -160,6 +163,7 @@ const Dashboard = ({ setPage, setStockDetail }) => {
           ))}
         </div>
       </div>
+      <Signout onClick={()=>setSign(true)}>signout</Signout>
     </DashboardWrap>
   );
 };

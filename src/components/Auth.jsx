@@ -1,14 +1,23 @@
 import React, { useState } from "react";
 import { firebase } from "../firebase";
+import { styled } from '../stitches.config'
 import {Button} from './Button.jsx'
 import {
   getAuth,
   RecaptchaVerifier,
   signInWithPhoneNumber,
 } from "firebase/auth";
+const NumberWrap = styled('div',{
+  display: 'flex',
+  gap: 5,
+  '.country': {
+    width: 50
+  }
+})
 function Auth() {
   const auth = getAuth(firebase);
   const [mynumber, setnumber] = useState("");
+  const [countryCode, setCountryCode] = useState('+66')
   const [otp, setotp] = useState("");
   const [show, setshow] = useState(false);
   const [final, setfinal] = useState();
@@ -25,7 +34,7 @@ function Auth() {
     try {
       const confirmationResult = await signInWithPhoneNumber(
         auth,
-        "+66" + mynumber,
+        countryCode + mynumber,
         verify
       );
       if (confirmationResult) {
@@ -53,6 +62,17 @@ function Auth() {
   };
   const renderSendOtp = (
     <>
+    <NumberWrap>
+      <input
+        id="first"
+        value={countryCode}
+        className="country border-b-2 p-2 border-sky-500"
+        onChange={(e) => {
+          setCountryCode(e.target.value);
+        }}
+        placeholder="+66 as default"
+        style={{ color: "black" }}
+      />
       <input
         id="first"
         value={mynumber}
@@ -60,9 +80,10 @@ function Auth() {
         onChange={(e) => {
           setnumber(e.target.value);
         }}
-        placeholder="+66 phone number"
+        placeholder="phone number"
         style={{ color: "black" }}
       />
+      </NumberWrap>
       <div id="recaptcha-container" />
       <Button full std className="rounded-none p-4 bg-cyan-700" onClick={signin}>
         Send OTP
