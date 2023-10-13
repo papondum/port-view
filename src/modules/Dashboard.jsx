@@ -29,6 +29,7 @@ const DashboardWrap = styled("div", {
   },
   ".section-wrap": {
     bc: "#E1F5FE",
+    br: 6,
     height: "calc(100% - 224px)",
     p: "$3",
     h3: {

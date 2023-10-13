@@ -14,6 +14,8 @@ const Input = styled("input", {
   p: "$2",
 });
 const SearchWrap = styled("div", {
+  p: '$2 $4',
+  br: 4,
   bc: "#f5f5f5",
 });
 const Container = styled("div", {
